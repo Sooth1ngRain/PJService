@@ -1,0 +1,46 @@
+﻿#端口
+server:
+  port: 39995
+  resources:
+    static-locations: file:./static/
+spring:
+  jackson:
+    default-property-inclusion: non_null
+  datasource:
+    dynamic:
+      primary: main #设置默认的数据源或者数据源组,默认值即为第一个
+      datasource:
+        #云桌面数据库
+        main:
+          url: jdbc:mysql://139.159.254.86:12066/pjdb?useUnicode=yes&characterEncoding=UTF8&allowMultiQueries=true&noAccessToProcedureBodies=true&useSSL=false
+          username: admin
+          password: Broad=07181440
+          driverClassName: com.mysql.jdbc.Driver
+#日志
+logging:
+  level:
+    org:
+      springframework: info
+    com:
+      broad: debug
+  file: ./logs/broad_job.log
+
+logging.level.com.baomidou.mybatisplus.core.mapper: debug
+
+#httpClient
+http:
+  #最大连接数
+  maxTotal: 100
+  #主机地址并发数
+  defaultMaxPerRoute: 50
+  #创建连接最长时间
+  connectTimeout: 10000
+  #数据传输最长时间
+  socketTimeout: 30000
+  #测试连接是否可用
+  staleConnectionCheckEnabled: true
+  #获取连接池最长时间
+  connectionRequestTimeout: 3000
+
+
+
