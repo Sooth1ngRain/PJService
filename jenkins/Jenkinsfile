@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'maven:3-alpine'
-            args '-v /root/.m2:/root/.m2 -v /root/ccw/script:/root/ccw/script'
+            args '-v /root/.m2:/root/.m2 -v /root/ccw/script:/root/ccw/script -p 33995:33995'
         }
     }
     stages {
